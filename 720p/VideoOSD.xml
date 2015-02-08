@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="2901">
+	<include condition="!VideoPlayer.Content(LiveTV)">OSDNonLiveTV</include>
+	<include condition="VideoPlayer.Content(LiveTV)">OSDLiveTV</include>
+	<controls>
+		<include>controls_Video</include>
+	</controls>
+</window>

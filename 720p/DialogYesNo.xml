@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window id="100">
+	<defaultcontrol always="true">10</defaultcontrol>
+	<include>dialogOpen</include>
+	<coordinates>
+		<system>1</system>
+		<posx>365</posx>
+		<posy>235</posy>
+	</coordinates>
+	<controls>
+		<control type="image">
+			<width>550</width>
+			<height>250</height>
+			<include>dialogWindow</include>
+		</control>
+		<control type="label" id="1">
+			<width>482</width>
+			<label>13406</label>
+			<include>dialog_Windowtitle</include>
+		</control>
+		<control type="textbox" id="9">
+			<top>67</top>
+			<width>482</width>
+			<left>34</left>
+			<height>97</height>
+			<align>center</align>
+			<font>small</font>
+			<textcolor>Color4</textcolor>
+			<scroll>false</scroll>
+		</control>
+	<!--dialog controls------>
+		<control type="group">
+			<posy>174</posy>
+			<posx>150</posx>
+			<!--yes-->
+			<control type="button" id="11">
+				<label>$LOCALIZE[107]</label>
+				<onleft>10</onleft>
+				<onright>10</onright>
+				<onup>11</onup>
+				<ondown>11</ondown>
+				<include>dialog_Button</include>
+			</control>
+			<!--no-->
+			<control type="button" id="10">
+				<posx>130</posx>
+				<label>$LOCALIZE[106]</label>
+				<onleft>11</onleft>
+				<onright>11</onright>
+				<onup>10</onup>
+				<ondown>10</ondown>
+				<include>dialog_Button</include>
+			</control>
+		</control>
+	</controls>
+</window>

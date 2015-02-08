@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window id="115">
+	<defaultcontrol>23</defaultcontrol>
+	<visible>!Player.HasAudio + [Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.Caching | Window.IsActive(fullscreeninfo)] + ![Window.IsActive(infodialog) | Window.IsActive(SubtitleSearch)]</visible>
+	<controls>
+		<include>clock</include>
+		
+
+<!-- reFocus light OSD -->
+		<!-- clearart -->
+		<control type="group">
+			<visible>player.paused + !Window.IsActive(fullscreeninfo)</visible>
+				<control type ="image" id="1">
+					<posx>923</posx>
+					<posy>477</posy>
+					<width>357</width>
+					<height>200</height>
+					<texture background="true">$INFO[Player.Art(tvshow.clearart)]</texture>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<animation type="WindowOpen" reversible="false">
+						<effect type="fade" start="0" end="85" time="750" delay="2000" tween="Quadratic" easing="In" />
+					</animation>
+					<animation type="WindowClose" reversible="false">
+						<effect type="fade" start="85" end="0" time="300" />
+					</animation>
+					<visible>Skin.HasSetting(videoosd.clearart) + [VideoPlayer.Content(episodes) | VideoPlayer.Content(movies)]</visible>
+				</control>
+
+				<!--thumb for streams-->
+				<control type="image" id="1">
+					<posx>10</posx>
+					<posy>400</posy>
+					<width>280</width>
+					<height>340</height>
+					<texture background="true" diffuse="frames/frame_Square-small-mask.png">$VAR[PlayerPoster]</texture>
+					<aspectratio align="right">keep</aspectratio>
+					<include>transition_OSD</include>
+					<visible>[VideoPlayer.Content(files) | VideoPlayer.Content(livetv) | SubString(Player.FolderPath,http)]</visible>
+				</control>
+			
+			<!-- episode logo -->
+			<control type ="group">
+				<visible>Skin.HasSetting(videoosd.logo)</visible>
+				<animation effect="slide" reversible="false" start="0,200" end="0,0" tween="Cubic" easing="Out" time="1000" delay="1000">WindowOpen</animation>
+				<animation effect="fade" time="300">WindowClose</animation>
+				<control type="image">
+					<posx>32</posx>
+					<posy>470</posy>
+					<width>215</width>
+					<height>300</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture fallback="empty">$INFO[Player.Art(tvshow.clearlogo)]</texture>
+					<visible>!IsEmpty(Player.Art(tvshow.clearlogo)) + [VideoPlayer.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<posx>32</posx>
+					<posy>470</posy>
+					<width>215</width>
+					<height>300</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture fallback="empty">$INFO[Player.Art(clearlogo)]</texture>
+					<visible>[VideoPlayer.Content(movies)]</visible>
+				</control>
+			</control>
+		</control>
+
+		<control type="group" id="213">
+			<posy>677</posy>
+			<animation type="WindowClose">
+				<effect type="slide" start="0,0" end="0,64" tween="Cubic" center="auto" easing="Out" time="250" />
+			</animation>
+			<control type="image" id="1">
+				<width>screen_Width</width>
+				<height>50</height>
+				<texture>osd/infoOverlay.png</texture>
+			</control>
+			<control type="group">
+				<posx>160</posx>
+				<posy>3</posy>
+				<!--playback progress-->
+				<control type="progress" id="1">
+					<posy>10</posy>
+					<width>920</width>
+					<height>21</height>
+					<texturebg border="10">dialogs/progressBackground.png</texturebg>
+					<info>Player.Progress</info>
+				</control>
+			</control>
+			<control type="group" id="1">
+				<posy>2</posy>
+				<control type="label" id="1">
+				    <font>description</font>
+		            <textcolor>Color2</textcolor>
+					<posx>145</posx>
+					<label>$VAR[player_Status.Condition]</label>
+					<include>seekbar_Label</include>
+				</control>
+				<control type="label" id="22">
+				    <font>description</font>
+		            <textcolor>Color2</textcolor>
+					<posx>1095</posx>
+					<width>250</width>
+					<align>left</align>
+					<label>[B]$INFO[Player.Time][/B] / $INFO[Player.Duration]</label>
+					<include>seekbar_Label</include>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

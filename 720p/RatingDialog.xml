@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<coordinates>
+		<system>1</system>
+		<posx>340</posx>
+		<posy>235</posy>
+	</coordinates>
+	
+	<animation effect="fade" time="500">WindowOpen</animation>
+	<animation effect="fade" time="500">WindowClose</animation>
+	
+	<controls>
+		<control type="image">
+			<posx>-340</posx>
+			<posy>-235</posy>
+			<include>screen_Dimensions</include>
+			<texture background="true">overlays/vignette.png</texture>
+			<animation effect="fade" time="1000" delay="500">WindowOpen</animation>
+		</control>
+		<control type="group">
+			<control type="image">
+				<description>Dialog Background</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>600</width>
+				<height>250</height>
+				<texture>dialogs/dialogWindow.png</texture>
+			</control>
+			<control type="label" id="10011">
+				<description>Dialog Title</description>
+				<posx>38</posx>
+				<posy>17</posy>
+				<width>524</width>
+				<label>$ADDON[script.trakt 1313]</label>
+				<include>dialog_Windowtitle</include>
+			</control>
+			<control type="image">
+				<posx>19</posx>
+				<posy>50</posy>
+				<width>562</width>
+				<include>dialog_Separator</include>
+			</control>
+			<control type="label" id="10012">
+				<description>Media Title</description>
+				<posx>38</posx>
+				<posy>75</posy>
+				<width>524</width>
+				<height>20</height>
+				<label></label>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>rating</font>
+				<textcolor>Color4</textcolor>
+			</control>
+			<control type="label" id="10013">
+				<description>Rating Title</description>
+				<posx>0</posx>
+				<posy>185</posy>
+				<width>600</width>
+				<height>20</height>
+				<label></label>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>smallBold</font>
+				<textcolor>Color4</textcolor>
+			</control>
+		</control>
+
+        <!--SIMPLE -->
+        <control type="group" id="10014">
+            <control type="button" id="10030">
+                <description>Love Button</description>
+                <posx>170</posx>
+                <posy>110</posy>
+                <width>100</width>
+                <height>60</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/love.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/love_nofocus.png</texturenofocus>
+                <aligny>center</aligny>
+                <align>center</align>
+                <onleft>10031</onleft>
+                <onright>10031</onright>
+            </control>
+
+            <control type="button" id="10031">
+                <description>Hate Button</description>
+                <posx>330</posx>
+                <posy>110</posy>
+                <width>100</width>
+                <height>60</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/hate.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/hate_nofocus.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <onleft>10030</onleft>
+                <onright>10030</onright>
+            </control>
+        </control>
+
+        <!--ADVANCED-->
+        <control type="group" id="10015">
+            <control type="button" id="11030">
+                <description>1 Button</description>
+                <posx>80</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/1.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/1.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11039</ondown>
+                <onup>11031</onup>
+                <onleft>11039</onleft>
+                <onright>11031</onright>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="button" id="11031">
+                <description>2 Button</description>
+                <posx>125</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/2.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/2.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11030</ondown>
+                <onup>11032</onup>
+                <onleft>11030</onleft>
+                <onright>11032</onright>
+                <visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11032)</visible>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="image">
+                <description>2 Button Placeholder</description>
+                <posx>125</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <texture>special://home/addons/script.trakt/resources/skins/Default/media/2_b.png</texture>
+                <visible>Control.HasFocus(11030)</visible>
+            </control>
+
+            <control type="button" id="11032">
+                <description>3 Button</description>
+                <posx>170</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/3.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/3.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11031</ondown>
+                <onup>11033</onup>
+                <onleft>11031</onleft>
+                <onright>11033</onright>
+                <visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)</visible>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="image">
+                <description>3 Button Placeholder</description>
+                <posx>170</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <texture>special://home/addons/script.trakt/resources/skins/Default/media/3_b.png</texture>
+                <visible>Control.HasFocus(11030)|Control.HasFocus(11031)</visible>
+            </control>
+
+            <control type="button" id="11033">
+                <description>4 Button</description>
+                <posx>215</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/4.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/4.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11032</ondown>
+                <onup>11034</onup>
+                <onleft>11032</onleft>
+                <onright>11034</onright>
+                <visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)</visible>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="image">
+                <description>4 Button Placeholder</description>
+                <posx>215</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <texture>special://home/addons/script.trakt/resources/skins/Default/media/4_b.png</texture>
+                <visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)</visible>
+            </control>
+
+            <control type="button" id="11034">
+                <description>5 Button</description>
+                <posx>260</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/5.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/5.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11033</ondown>
+                <onup>11035</onup>
+                <onleft>11033</onleft>
+                <onright>11035</onright>
+                <visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)</visible>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="image">
+                <description>5 Button Placeholder</description>
+                <posx>260</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <texture>special://home/addons/script.trakt/resources/skins/Default/media/5_b.png</texture>
+                <visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)</visible>
+            </control>
+
+            <control type="button" id="11035">
+                <description>6 Button</description>
+                <posx>305</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/6.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/6.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11034</ondown>
+                <onup>11036</onup>
+                <onleft>11034</onleft>
+                <onright>11036</onright>
+                <visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)</visible>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="image">
+                <description>6 Button Placeholder</description>
+                <posx>305</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <texture>special://home/addons/script.trakt/resources/skins/Default/media/6_b.png</texture>
+                <visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)</visible>
+            </control>
+
+            <control type="button" id="11036">
+                <description>7 Button</description>
+                <posx>350</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/7.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/7.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11035</ondown>
+                <onup>11037</onup>
+                <onleft>11035</onleft>
+                <onright>11037</onright>
+                <visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)|!Control.HasFocus(11035)</visible>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="image">
+                <description>7 Button Placeholder</description>
+                <posx>350</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <texture>special://home/addons/script.trakt/resources/skins/Default/media/7_b.png</texture>
+                <visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)|Control.HasFocus(11035)</visible>
+            </control>
+
+            <control type="button" id="11037">
+                <description>8 Button</description>
+                <posx>395</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/8.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/8.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11036</ondown>
+                <onup>11038</onup>
+                <onleft>11036</onleft>
+                <onright>11038</onright>
+                <visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)|!Control.HasFocus(11035)|!Control.HasFocus(11036)</visible>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="image">
+                <description>8 Button Placeholder</description>
+                <posx>395</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <texture>special://home/addons/script.trakt/resources/skins/Default/media/8_b.png</texture>
+                <visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)|Control.HasFocus(11035)|Control.HasFocus(11036)</visible>
+            </control>
+
+            <control type="button" id="11038">
+                <description>9 Button</description>
+                <posx>440</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/9.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/9.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11037</ondown>
+                <onup>11039</onup>
+                <onleft>11037</onleft>
+                <onright>11039</onright>
+                <visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)|!Control.HasFocus(11035)|!Control.HasFocus(11036)|!Control.HasFocus(11037)</visible>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="image">
+                <description>9 Button Placeholder</description>
+                <posx>440</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <texture>special://home/addons/script.trakt/resources/skins/Default/media/9_b.png</texture>
+                <visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)|Control.HasFocus(11035)|Control.HasFocus(11036)|Control.HasFocus(11037)</visible>
+            </control>
+
+            <control type="button" id="11039">
+                <description>10 Button</description>
+                <posx>485</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <label></label>
+                <texturefocus>special://home/addons/script.trakt/resources/skins/Default/media/10.png</texturefocus>
+                <texturenofocus>special://home/addons/script.trakt/resources/skins/Default/media/10.png</texturenofocus>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>11038</ondown>
+                <onup>11030</onup>
+                <onleft>11038</onleft>
+                <onright>11030</onright>
+                <visible allowhiddenfocus="true">!Control.HasFocus(11030)|!Control.HasFocus(11031)|!Control.HasFocus(11032)|!Control.HasFocus(11033)|!Control.HasFocus(11034)|!Control.HasFocus(11035)|!Control.HasFocus(11036)|!Control.HasFocus(11037)|!Control.HasFocus(11038)</visible>
+                <animation effect="zoom" end="115,115" center="auto" time="100">focus</animation>
+            </control>
+
+            <control type="image">
+                <description>10 Button Placeholder</description>
+                <posx>485</posx>
+                <posy>130</posy>
+                <width>35</width>
+                <height>35</height>
+                <texture>special://home/addons/script.trakt/resources/skins/Default/media/10_b.png</texture>
+                <visible>Control.HasFocus(11030)|Control.HasFocus(11031)|Control.HasFocus(11032)|Control.HasFocus(11033)|Control.HasFocus(11034)|Control.HasFocus(11035)|Control.HasFocus(11036)|Control.HasFocus(11037)|Control.HasFocus(11038)</visible>
+            </control>
+        </control>
+
+    </controls>
+
+</window>

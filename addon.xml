@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<addon id="skin.opencarsystem" version="0.0.1" name="OpenCarSystem" provider-name="Artur Smolarek">
+	<requires>
+		<import addon="xbmc.gui" version="5.0.1"/>
+		<import addon="script.favourites" version="5.0.0"/>
+		<import addon="script.playlists" version="2.0.0"/>
+		<import addon="script.artwork.downloader" version="12.0.2"/>
+	</requires>
+	<extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1.00" debugging="false">
+		<res width="1280" height="720" aspect="16:9" default="true" folder="720p" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>OpenCarSystem</summary>
+		<description>lightweight version of the reFocus BIG skin especially for low-power devices like the Raspberry Pi</description>
+		<platform>all</platform>
+	</extension>
+</addon>

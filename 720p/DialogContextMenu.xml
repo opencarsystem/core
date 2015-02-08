@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window id="106">
+	<defaultcontrol>1000</defaultcontrol>
+	<include>dialogOpen</include>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+		<origin x="485" y="100" />
+	</coordinates>
+	<controls>
+		<control type="image" id="999">
+			<width>310</width>
+			<height>436</height>
+			<texture border="20">dialogs/button_Menu.png</texture>
+		</control>
+		<control type="image">
+			<posx>4</posx>
+			<posy>18</posy>
+			<width>302</width>
+			<include>dialog_Separator</include>
+		</control>
+		<control type="grouplist" id="996">
+			<posx>4</posx>
+			<posy>18</posy>
+			<width>302</width>
+			<height min="40" max="400">auto</height>
+			<itemgap>0</itemgap>
+			<control type="button" id="2001">
+					<description>actor/director info button (visible only container is MovieActors, MovieDirectors or TvShowActors)</description>
+					<width>302</width>
+					<label>Artist Information</label>
+					<onclick>RunScript(script.metadata.actors,$INFO[ListItem.Label])</onclick>
+					<visible>Container.Content(Actors) | Container.Content(Directors) | Container.Content(Artists)</visible>
+					<visible>System.HasAddon(script.metadata.actors) + !Window.IsVisible(script-Actors-DialogInfo.xml)</visible>
+					<include>dialog_Button-list</include>
+			</control>
+			<control type="button" id="2002">
+					<description>trakt.tv</description>
+					<width>302</width>
+					<label>trakt.tv options</label>
+					<onclick>RunScript(script.trakt,action=contextmenu)</onclick>
+					<visible>System.HasAddon(script.trakt) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]</visible>
+					<include>dialog_Button-list</include>
+			</control>
+			<control type="button" id="2007">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>302</width>
+				<label>$LOCALIZE[32015]</label>
+				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(actors) | Container.Content(directors)</visible>
+				<onclick>ActivateWindow(videos,plugin://plugin.video.youtube/?path=/root/search&amp;feed=search&amp;search=$INFO[ListItem.Label],return)</onclick>
+				<include>dialog_Button-list</include>			
+			</control>
+        	</control>
+		<!--default button-->
+		<control type="button" id="1000">
+			<posx>9</posx>
+			<width>335</width>
+			<include>dialog_Button-list</include>
+		</control>
+	</controls>
+</window>

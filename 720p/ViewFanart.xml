@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="view_Fanart">
+	    <control type="group" id="98245">
+			<include>transition_Container</include>
+			<include>toggle_Menu</include>
+			<include>infoDialogHide</include>
+			<visible>Control.IsVisible(47)</visible>
+			<control type="wraplist" id="47">
+			    <viewtype label="Fanart">bigwrap</viewtype>
+			    <width>screen_Width</width>
+			    <height>720</height>
+			    <onleft>56</onleft>
+			    <onright>56</onright>
+			    <onup>6000</onup>
+			    <ondown>8000</ondown>
+			    <preloaditems>2</preloaditems>
+			    <scrolltime tween="Cubic" easing="Out">300</scrolltime>
+			    <orientation>horizontal</orientation>
+			    <include>transition_Container</include>
+			    <include>infoDialogHide</include>
+			    <visible>Container.Content(episodes)</visible>
+		    </control>
+		</control>
+		<control type="image">
+			<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+			<include>screen_Dimensions</include>
+			<fadetime>fadetime_Fanart</fadetime>
+			<include>fadeinout</include>
+			<visible>Control.IsVisible(47)</visible>
+		</control>
+		<control type="image">
+			<texture background="true">backgrounds/background.png</texture>
+			<include>screen_Dimensions</include>
+			<fadetime>fadetime_Fanart</fadetime>
+			<include>fadeinout</include>
+			<visible>Control.IsVisible(47) + Window.IsActive(movieinformation)</visible>
+		</control>
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<aspectratio align="left">stretch</aspectratio>
+			<texture>home/menuBackground.png</texture>
+			<include>fadeinout</include>
+			<include>transition_Fanart</include>
+			<visible>Control.IsVisible(47) + ControlGroup(6000).HasFocus()</visible>
+		</control>
+		<control type="group">
+			<posy>500</posy>
+			<include>transition_Container</include>
+			<include>infoDialogHide</include>
+			<animation effect="slide" start="0,600" end="0,0" easing="Out" tween="Quadratic" time="350">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,600" easing="Out" tween="Quadratic" time="350">Hidden</animation>
+			<visible>[[Control.IsVisible(47) + Control.HasFocus(8000)] | Control.IsVisible(47)] + !ControlGroup(6000).HasFocus()</visible>
+			<control type="image">
+				<width>1280</width>
+				<height>284</height>
+				<posy>-64</posy>
+				<texture>views/fanart_bg_overlay.png</texture>
+			</control>
+			<!--<control type="image">
+				<posy>63</posy>
+				<posx>30</posx>
+				<width>268</width>
+				<height>150</height>
+				<align>center</align>
+				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+				<aspectratio>stretch</aspectratio>
+				<visible>Container.Content(episodes)</visible>
+			</control>-->
+			<control type ="image">
+				<posx>15</posx>
+				<posy>50</posy>
+				<width>303</width>
+				<height>170</height>
+				<texture background="true">$INFO[ListItem.Art(tvshow.clearart)]</texture>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<visible>Skin.HasSetting(view.fanart.clearart)</visible>
+			</control>
+			<control type="image">
+				<posx>25</posx>
+				<posy>105</posy>
+				<width>268</width>
+				<height>104</height>
+				<aspectratio>stretch</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(tvshow.clearlogo)]</texture>
+				<visible>!Skin.HasSetting(view.fanart.clearart)</visible>
+			</control>
+			<control type="group">
+				<posx>335</posx>
+				<posy>78</posy>
+				<visible>Container.Content(episodes)</visible>
+				<control type="label">
+					<label>$INFO[ListItem.Title]</label>
+					<font>osdTitle</font>
+					<align>left</align>
+					<aligny>top</aligny>
+					<width>750</width>
+					<textcolor>Color1</textcolor>
+				</control>
+				<control type="label">
+					<posy>40</posy>
+					<width>780</width>
+					<label>$INFO[ListItem.Season,$LOCALIZE[20373] , • ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</label>
+					<font>descriptionbig</font>
+					<align>left</align>
+					<textcolor>Color4</textcolor>
+				</control>
+				<control type="grouplist">
+				<posx>815</posx>
+				<posy>25</posy>
+				<orientation>horizontal</orientation>
+					<control type="image">
+						<width>33</width>
+						<height>32</height>
+						<texture>rating/star_rating.png</texture>
+						<aspectratio align="center">keep</aspectratio>
+						<visible>!IsEmpty(ListItem.Rating)</visible>
+					</control>
+					<control type="label">
+						<width>58</width>
+						<height>32</height>
+						<font>rating</font>
+						<label>$INFO[ListItem.Rating]</label>
+						<textcolor>Color3</textcolor>
+					</control>
+				</control>
+				<control type="textbox" id="1">
+					<posy>75</posy>
+					<height>60</height>
+					<width>910</width>
+					<label>$VAR[global_Plot.Condition]</label>
+					<textcolor>Color3</textcolor>
+					<font>descriptionbig</font>
+					<include>description_OSD</include>
+				</control>
+			    <control type="image">
+					<posx>913</posx>
+					<posy>110</posy>
+					<include>overlay_UnWatched</include>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

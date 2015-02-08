@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="142">
+	<defaultcontrol>7000</defaultcontrol>
+	<controls>
+		<include>clock</include>
+		<control type="group">
+			<include>osd_Info</include>
+			<include condition="Skin.HasSetting(videoosd.transition)">transition_OSD</include>
+		</control>
+	</controls>
+</window>

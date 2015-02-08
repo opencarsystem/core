@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">11</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload condition="Stringcompare(Skin.String(startupcount),2)">Skin.SetString(startupcount,3)</onload>
+	<onload condition="Stringcompare(Skin.String(startupcount),1)">Skin.SetString(startupcount,2)</onload>
+	<onload condition="IsEmpty(Skin.String(startupcount))">Skin.SetString(startupcount,1)</onload>
+	<onload condition="[!Skin.HasSetting(startup.splash) + Stringcompare(Skin.String(startupcount),3)]">ActivateWindow(Home)</onload>
+	<onload condition="[Skin.HasSetting(startup.splash) + Stringcompare(Skin.String(startupcount),3)]">AlarmClock(GotToHome,ActivateWindow(Home),0:01,silent)</onload>
+	<onload>ClearProperty(FocusOnSubmenu,home)</onload>
+	<onunload>CancelAlarm(GotToHome,true)</onunload>
+	<controls>
+		<control type="group">
+		<visible>Skin.HasSetting(startup.splash)</visible>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<texture background="true">backgrounds/dark.png</texture>
+			</control>
+			<control type="image">
+				<posx>475</posx>
+				<posy>320</posy>
+				<width>320</width>
+				<height>65</height>
+				<texture>logos/refocuslogo.png</texture>
+				<aspectratio>keep</aspectratio>
+				</control>
+		</control>
+	</controls>
+</window>
